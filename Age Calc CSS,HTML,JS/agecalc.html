@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Meeyo Age Calc</title>
+    <link rel="icon" href="https://i.ibb.co/cyD3QgY/age.jpg" alt="age" border="0"> 
+    <link rel="stylesheet" href="style.css">
+    <style>
+    body{
+        margin: 0;
+        padding: 0;
+        font-family:'Franklin Gothic''Cond Demi'
+    }
+    .container{
+        max-width: 100%;
+        min-height: 100vh;
+        background: linear-gradient(165deg,blue,violet,orange);
+        color: white;
+        padding: 15px;
+        
+    }
+    .calculator{
+        width: 100%;
+        max-width: 400px;
+        margin-left: 37%;
+        margin-top: 10%;
+    }
+    .calculator h1{
+        font-size: 40px;
+    }
+    .calculator h1 span{
+        color:greenyellow;
+    }
+    .table{
+        border: 3px solid black ;
+        height: auto;
+        margin-right: auto;
+        border-radius: 5px;
+        border-style: ridge;
+        background: linear-gradient(red,blue);
+    }
+    .input{
+      width: 100%;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+    button{
+      background-color:greenyellow;
+      color: black;
+      padding: 10px 20px;
+      border:none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .result{ 
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <h1>MEEYO<br><span>AGE CALCULATOR</span></h1>
+            <div class="table">
+                <div class="input">
+                    <label for="birthDate">Born Date :</label>
+                    <input type="date" id="birthDate">
+                    <label for="calculateBtn"></label>
+                    <button id="calculateBtn" onclick="calculateAge()">Calculate Age</button>
+                    <div id="result"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    function calculateAge(){
+        var birthDate = document.getElementById('birthDate').value;
+        var today = new Date();
+        var birthDateObj = new Date(birthDate);
+        var age = today.getFullYear() - birthDateObj.getFullYear();
+        var monthDiff = today.getMonth() - birthDateObj.getMonth();
+        if (monthDiff < 0 ) {
+            age--;
+        }
+        document.getElementById('result').innerHTML = 'Your age is: ' + age;
+    }
+    </script>
+</body>
+</html>
+           
+    
